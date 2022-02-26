@@ -10,14 +10,14 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::query()->latest()->get();
-        return view('posts', [
+        return view('posts.posts', [
             "posts" => $posts
         ]);
     }
 
     public function show(Post $post)
     {
-        return view('post', [
+        return view('posts.post', [
             "post"  => $post
         ]);
     }
