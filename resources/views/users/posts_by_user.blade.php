@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class="text-3xl font-black text-center md:text-left">Posts</h1>
+<div class="py-10">
+    <h1 class="text-3xl font-black text-center">{{ $user->name }}</h1>
+</div>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 py-10">
     @foreach($posts as $post)
@@ -14,7 +16,7 @@
             <p class="text-gray-500 text-base mb-5 block">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quo nemo, ipsa expedita aspernatur sit eius. Ipsam ab hic cumque obcaecati magni sequi sit libero, sed, reprehenderit assumenda iusto excepturi.</p>
 
             <div>
-                <span class="text-gray-900 font-semibold block"><a href="">{{ $post->user->name }}</a></span>
+                <span class="text-gray-900 hover:text-indigo-600 font-semibold block"><a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a></span>
                 <span class="text-gray-500 block text-sm">Feb 24, 2022</span>
             </div>
         </div>

@@ -5,7 +5,7 @@
     <h1 class="text-gray-900 font-black text-4xl mb-5 block">{{ $post->title }}</h1>
     <div>
         <div>
-            <span class="text-gray-900 font-semibold inline-block">
+            <span class="text-gray-900 font-semibold inline-block hover:text-indigo-600">
                 <a href="">{{ $post->user->name }}</a>
             </span>
             ~
