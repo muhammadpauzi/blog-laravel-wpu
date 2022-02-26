@@ -14,7 +14,7 @@
             <p class="text-gray-500 text-base mb-5 block">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quo nemo, ipsa expedita aspernatur sit eius. Ipsam ab hic cumque obcaecati magni sequi sit libero, sed, reprehenderit assumenda iusto excepturi.</p>
 
             <div>
-                <span class="text-gray-900 hover:text-indigo-600 font-semibold block"><a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a></span>
+                <span class="text-gray-900 hover:text-indigo-600 font-semibold block"><a href="/users/{{ $post->user->username }}">{{ $post->user->name }}</a></span>
                 <span class="text-gray-500 block text-sm">Feb 24, 2022</span>
             </div>
         </div>
