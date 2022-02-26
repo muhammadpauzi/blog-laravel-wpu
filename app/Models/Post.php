@@ -11,6 +11,7 @@ class Post extends Model
 
     protected $fillable = ["title", "slug", "category_id", "description", "body"];
     // protected $guarded = ["id"];
+    // protected $with = ['user', 'category'] // eager loading
 
     public function category()
     {

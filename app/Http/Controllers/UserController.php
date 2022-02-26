@@ -10,7 +10,7 @@ class UserController extends Controller
     public function postsByUser(User $user)
     {
         return view('users.posts_by_user', [
-            "posts" => $user->posts,
+            "posts" => $user->posts->load('user', 'category'),
             "user"  => $user
         ]);
     }
