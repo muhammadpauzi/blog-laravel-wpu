@@ -6,7 +6,7 @@
     <div>
         <div>
             <span class="text-gray-900 font-semibold inline-block hover:text-indigo-600">
-                <a href="">{{ $post->user->name }}</a>
+                <a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a>
             </span>
             ~
             <span class="text-indigo-600 font-bold inline-block">
