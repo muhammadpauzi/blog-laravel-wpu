@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="my-20"></div>
-    <div class="text-base text-gray-800 leading-relaxed font-serif">
+    <div class="body-post text-base text-gray-800 leading-relaxed font-serif">
         {!! $post->body !!}
     </div>
 </div>
