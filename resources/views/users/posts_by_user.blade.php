@@ -20,9 +20,13 @@
         </div>
     </div>
 
+    @if($posts->count())
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 py-10">
         @foreach($posts as $post)
         <x-post-card :post="$post" />
         @endforeach
     </div>
+    @else
+    <p class="font-black text-2xl block text-center text-red-600 my-20">There are no posts.</p>
+    @endif
     @endsection
