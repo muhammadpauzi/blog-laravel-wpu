@@ -718,6 +718,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .leading-relaxed {
   line-height: 1.625;
 }
+.leading-normal {
+  line-height: 1.5;
+}
+.leading-snug {
+  line-height: 1.375;
+}
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));

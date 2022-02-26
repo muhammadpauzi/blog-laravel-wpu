@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto py-10 px-6 rounded-lg bg-white shadow-md shadow-slate-200">
-    <h1 class="text-gray-900 font-black text-4xl mb-5 block">{{ $post->title }}</h1>
+    <h1 class="text-gray-900 font-black text-4xl mb-5 block leading-snug">{{ $post->title }}</h1>
     <div>
         <div>
             <span class="text-gray-900 font-semibold inline-block hover:text-indigo-600">
