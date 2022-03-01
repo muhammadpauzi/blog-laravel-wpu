@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="block md:grid grid-cols-2 gap-5 items-center">
     <div>
         @if($category)
@@ -15,9 +14,6 @@
         <form action="/posts" class="mt-1 flex rounded-md shadow-sm">
             @if(request('category'))
             <input type="hidden" name="category" value="{{ request('category') }}">
-            @endif
-            @if(request('author'))
-            <input type="hidden" name="author" value="{{ request('author') }}">
             @endif
             <input type="text" name="search" id="search" class="focus:ring-indigo-500 focus:border-indigo-500 p-3 flex-1 block w-full rounded-none rounded-l-md sm:text-sm border-gray-300 border" placeholder="Search..." value="{{ request('search') }}" autofocus>
             <button class="inline-flex items-center px-5 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm py-3"> Search </button>
@@ -34,4 +30,7 @@
 @else
 <p class="font-bold text-xl block text-center text-red-600 my-20">There are no posts.</p>
 @endif
+
+{{ $posts->links() }}
+
 @endsection
