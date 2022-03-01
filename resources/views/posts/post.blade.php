@@ -6,11 +6,11 @@
     <div>
         <div>
             <span class="text-gray-900 font-semibold inline-block hover:text-indigo-600">
-                <a href="/users/{{ $post->user->username }}">{{ $post->user->name }}</a>
+                <a href="/author/{{ $post->author->username }}">{{ $post->author->name }}</a>
             </span>
             ~
             <span class="text-indigo-600 font-bold inline-block">
-                <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
+                <a href="/posts?categories={{ $post->category->slug }}">{{ $post->category->name }}</a>
             </span>
             ~
             <span class="text-gray-500 inline-block text-sm">Feb 24, 2022</span>

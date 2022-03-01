@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function postsByUser(User $user)
+    public function postsByUser(User $author)
     {
         return view('users.posts_by_user', [
-            "posts" => $user->posts->load('user', 'category'),
-            "user"  => $user
+            "posts" => $author->posts->load('author', 'category'),
+            "user"  => $author
         ]);
     }
 }

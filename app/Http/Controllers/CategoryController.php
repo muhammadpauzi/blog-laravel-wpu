@@ -13,12 +13,4 @@ class CategoryController extends Controller
             'categories'    => Category::orderBy('name')->get()
         ]);
     }
-
-    public function postsByCategory(Category $category)
-    {
-        return view('categories.posts_by_category', [
-            "posts" => $category->posts->load('user', 'category'),
-            "category"  => $category
-        ]);
-    }
 }
