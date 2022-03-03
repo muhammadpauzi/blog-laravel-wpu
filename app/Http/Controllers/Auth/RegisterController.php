@@ -26,7 +26,7 @@ class RegisterController extends Controller
         // hash password
         $validatedRequest['password'] = Hash::make($validatedRequest['password']);
         // create data user into database
-        // User::create($validatedRequest);
+        User::create($validatedRequest);
         // redirect to login page
         return redirect()->to('/login')->with("success", "Registration successfully!");
     }

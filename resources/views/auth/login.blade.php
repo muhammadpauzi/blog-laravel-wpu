@@ -11,15 +11,23 @@
             <span class="font-medium text-green-500 text-base">{{ session('success') }}</span>
         </div>
         @endif
-        <form class="mt-8 space-y-6" action="#" method="POST" novalidate>
+        @if(session('loginError'))
+        <div class="bg-white shadow-sm p-5 border-l-4 border-red-500">
+            <span class="font-medium text-red-500 text-base">{{ session('loginError') }}</span>
+        </div>
+        @endif
+        <form class="mt-8 space-y-6" action="/login" method="POST" novalidate>
+            @csrf
             <div class="rounded-md shadow-sm">
                 <div class="mb-2">
                     <label for="email-address" class="block text-sm font-medium text-gray-700 mb-2">Email address</label>
-                    <input id="email-address" name="email" type="email" autocomplete="email" class="focus:ring-indigo-500 focus:border-indigo-500 p-3 flex-1 block w-full rounded-md sm:text-sm border-gray-300 border">
+                    <input id="email-address" name="email" type="email" autocomplete="email" class="focus:ring-indigo-500 focus:border-indigo-500 p-3 flex-1 block w-full rounded-md sm:text-sm border-gray-300 border" value="{{ old('email') }}">
+                    @error('email')<small class="text-red-600 font-medium block my-2">{{ $message }}</small>@enderror
                 </div>
                 <div class="mb-2">
                     <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
                     <input id="password" name="password" type="password" autocomplete="password" class="focus:ring-indigo-500 focus:border-indigo-500 p-3 flex-1 block w-full rounded-md sm:text-sm border-gray-300 border">
+                    @error('password')<small class="text-red-600 font-medium block my-2">{{ $message }}</small>@enderror
                 </div>
             </div>
 
