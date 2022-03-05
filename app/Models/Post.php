@@ -43,4 +43,9 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    // for route binding with slug instead id
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

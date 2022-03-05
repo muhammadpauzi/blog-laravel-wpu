@@ -8,7 +8,7 @@
 
         <div>
             <span class="text-gray-900 hover:text-indigo-600 font-semibold block"><a href="/author/{{ $post->author->username }}">{{ $post->author->name }}</a></span>
-            <span class="text-gray-500 block text-sm">Feb 24, 2022</span>
+            <span class="text-gray-500 block text-sm">{{ $post->created_at->format('h:i A M, d Y') }}</span>
         </div>
     </div>
 </div>

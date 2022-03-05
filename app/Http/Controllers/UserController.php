@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function postsByUser(User $author)
     {
-        return view('users.posts_by_user', [
+        return view('users.posts-by-user.blade', [
             "posts" => $author->posts->load('author', 'category'),
             "user"  => $author
         ]);
