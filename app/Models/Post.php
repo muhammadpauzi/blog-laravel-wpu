@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["title", "slug", "category_id", "description", "body"];
+    protected $fillable = ["title", "slug", "category_id", "user_id", "description", "body"];
     // protected $guarded = ["id"];
     // protected $with = ['author', 'category'] // eager loading
 

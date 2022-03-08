@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>Blog Laravel WPU</title>
+
+    <!-- trix-editor -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('trix-editor/trix.css') }}">
+    <style>
+        span[data-trix-button-group="file-tools"] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50 min-h-screen">
@@ -16,6 +24,13 @@
         @yield('content')
     </div>
 
+    <!-- trix-editor -->
+    <script type="text/javascript" src="{{ asset('trix-editor/trix.js') }}"></script>
+    <script>
+        document.addEventListener('trix-file-accept', function(e) {
+            e.preventDefault();
+        })
+    </script>
 </body>
 
 </html>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DashboardPostController extends Controller
 {
@@ -27,7 +29,9 @@ class DashboardPostController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.posts.create', [
+            'categories'    => Category::all()
+        ]);
     }
 
     /**
@@ -38,7 +42,19 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'slug'   => 'required|unique:posts',
+            'category_id'   => 'required|numeric',
+            'description'   => 'required',
+            'body'   => 'required'
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Post::create($validatedData);
+
+        return redirect()->to('/dashboard/posts')->with('success', 'New post has been created.');
     }
 
     /**
@@ -86,5 +102,22 @@ class DashboardPostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function slug()
+    {
+        $slug = Str::of(request('title'))->slug()->value;
+        while (true) {
+            $post = Post::query()->where('slug', '=', $slug)->get();
+            if ($post->isNotEmpty()) {
+                $slug .= '-' . Str::lower(Str::random(5));
+                continue;
+            } else {
+                break;
+            }
+        }
+        return response()->json([
+            "slug"  => $slug
+        ]);
     }
 }
