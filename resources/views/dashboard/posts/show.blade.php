@@ -13,8 +13,12 @@
             <span class="text-gray-500 inline-block text-sm">{{ $post->created_at->format('h:i A M, d Y') }}</span>
             ~
             <div class="space-x-2 inline-block">
-                <a href="" class="text-indigo-600">Edit</a>
-                <a href="" class="text-red-600">Delete</a>
+                <a href="/dashboard/posts/{{ $post->slug }}/edit" class="text-indigo-600">Edit</a>
+                <form action="/dashboard/posts/{{ $post->slug }}" class="inline-block" method="post">
+                    @method('DELETE')
+                    @csrf
+                    <button onclick="return confirm('Are you sure to delete this post?')" class="text-red-600 hover:text-red-900">Delete</button>
+                </form>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ class DashboardPostController extends Controller
      */
     public function index()
     {
-        $posts = auth()->user()->posts()->latest()->get();
+        $posts = auth()->user()->posts()->latest()->get(); // Error of intelephense
         return view('dashboard.posts.index', [
             'posts' => $posts
         ]);
@@ -101,7 +101,8 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->to('/dashboard/posts')->with('success', 'Post has been deleted.');
     }
 
     public function slug()
