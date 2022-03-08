@@ -21,7 +21,7 @@
             <div class="rounded-md shadow-sm">
                 <div class="mb-2">
                     <label for="email-address" class="block text-sm font-medium text-gray-700 mb-2">Email address</label>
-                    <input id="email-address" name="email" type="email" autocomplete="email" class="focus:ring-indigo-500 focus:border-indigo-500 p-3 flex-1 block w-full rounded-md sm:text-sm border-gray-300 border" value="{{ old('email') }}">
+                    <input id="email-address" name="email" type="email" autofocus autocomplete="email" class="focus:ring-indigo-500 focus:border-indigo-500 p-3 flex-1 block w-full rounded-md sm:text-sm border-gray-300 border" value="{{ old('email') }}">
                     @error('email')<small class="text-red-600 font-medium block my-2">{{ $message }}</small>@enderror
                 </div>
                 <div class="mb-2">

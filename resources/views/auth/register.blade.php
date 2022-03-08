@@ -11,7 +11,7 @@
             <div class="rounded-md shadow-sm">
                 <div class="mb-2">
                     <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                    <input id="name" name="name" type="text" autocomplete="username" class="focus:ring-indigo-500 focus:border-indigo-500 p-3 flex-1 block w-full rounded-md sm:text-sm border-gray-300 border" value="{{ old('name') }}">
+                    <input id="name" name="name" type="text" autocomplete="username" class="focus:ring-indigo-500 focus:border-indigo-500 p-3 flex-1 block w-full rounded-md sm:text-sm border-gray-300 border" value="{{ old('name') }}" autofocus>
                     @error('name')<small class="text-red-600 font-medium block my-2">{{ $message }}</small>@enderror
                 </div>
                 <div class="mb-2">
