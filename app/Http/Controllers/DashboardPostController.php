@@ -16,7 +16,7 @@ class DashboardPostController extends Controller
      */
     public function index()
     {
-        $posts = auth()->user()->posts;
+        $posts = auth()->user()->posts()->latest()->get();
         return view('dashboard.posts.index', [
             'posts' => $posts
         ]);
