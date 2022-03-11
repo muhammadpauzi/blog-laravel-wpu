@@ -47,9 +47,11 @@ class DashboardPostController extends Controller
             'slug'   => 'required|unique:posts',
             'category_id'   => 'required|numeric',
             'description'   => 'required',
+            'image' => 'required|image|file|max:1024',
             'body'   => 'required'
         ]);
 
+        $validatedData['image'] = $request->file('image')->store('post-images');
         $validatedData['user_id'] = auth()->user()->id;
 
         Post::create($validatedData);

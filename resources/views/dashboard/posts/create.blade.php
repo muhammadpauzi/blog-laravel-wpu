@@ -4,12 +4,12 @@
 <h1 class="text-3xl font-black text-center md:text-left mb-5">Create New Post</h1>
 <div class="min-h-full">
     <div class="max-w-full w-full space-y-8">
-        <form class="space-y-6" action="/dashboard/posts" method="POST" novalidate>
+        <form class="space-y-6" action="/dashboard/posts" method="POST" novalidate enctype="multipart/form-data">
             @csrf
             <div class="rounded-md shadow-sm max-w-lg">
                 <div class="mb-2">
                     <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Title</label>
-                    <input id="title" name="title" type="title" autocomplete="title" class="focus:ring-indigo-500 focus:border-indigo-500 p-3 flex-1 block w-full rounded-md sm:text-sm border-gray-300 border" value="{{ old('title') }}" autofocus>
+                    <input id="title" name="title" type="text" autocomplete="title" class="focus:ring-indigo-500 focus:border-indigo-500 p-3 flex-1 block w-full rounded-md sm:text-sm border-gray-300 border" value="{{ old('title') }}" autofocus>
                     @error('title')<small class="text-red-600 font-medium block my-2">{{ $message }}</small>@enderror
                 </div>
                 <div class="mb-2">
@@ -34,6 +34,11 @@
                         @endif
                         @endforeach
                     </select>
+                </div>
+                <div class="mb-2">
+                    <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Image</label>
+                    <input id="image" name="image" type="file" class="focus:ring-indigo-500 focus:border-indigo-500 p-3 flex-1 block w-full rounded-md sm:text-sm border-gray-300 border" autofocus>
+                    @error('image')<small class="text-red-600 font-medium block my-2">{{ $message }}</small>@enderror
                 </div>
             </div>
             <div>
