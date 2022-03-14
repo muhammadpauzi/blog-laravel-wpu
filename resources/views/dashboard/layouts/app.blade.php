@@ -21,9 +21,11 @@
                 <li>
                     <a href="/dashboard/posts" class="py-4 px-10 border-b-2 {{ Request::is('dashboard/posts') ? 'text-indigo-600 font-bold border-b-indigo-600' : 'border-b-gray-200 text-gray-600 hover:border-b-indigo-600 hover:text-indigo-600 font-medium' }}">My Posts</a>
                 </li>
+                @can('admin')
                 <li>
-                    <a href="" class="text-gray-600 hover:text-indigo-600 font-medium py-4 px-10 border-b-2 border-b-gray-200 hover:border-b-indigo-600">Categories</a>
+                    <a href="/dashboard/categories" class="text-gray-600 hover:text-indigo-600 font-medium py-4 px-10 border-b-2 border-b-gray-200 hover:border-b-indigo-600">Categories</a>
                 </li>
+                @endcan
             </ul>
         </div>
         <div>
@@ -31,4 +33,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    const previewImage = () => {
+        const imgPreview = document.getElementById('img-preview');
+        const imgInput = document.getElementById('image');
+
+        imgPreview.style.display = 'block';
+
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(imgInput.files[0]);
+        fileReader.onload = (event) => {
+            imgPreview.src = event.target.result;
+        }
+    }
+</script>
 @endsection
