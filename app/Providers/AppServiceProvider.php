@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('post-card', PostCard::class);
 
         Gate::define('admin', function (User $user) {
-            return $user->is_admin;
+            return $user['is-admin'];
         });
     }
 }

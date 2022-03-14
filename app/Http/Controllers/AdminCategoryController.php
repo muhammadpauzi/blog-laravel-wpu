@@ -14,7 +14,7 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        $this->authorize('admin');
+        // $this->authorize('admin');
         return view('dashboard.categories.index', [
             'categories'    => Category::query()->latest()->get()
         ]);
